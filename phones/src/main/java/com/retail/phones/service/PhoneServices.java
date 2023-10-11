@@ -27,11 +27,12 @@ public class PhoneServices {
 	}
 	
 	public List<PhoneResponse> findAll(){
-		List<Phone> lp = new ArrayList<Phone>();
+		List<Phone> lp = pr.findAll();
 		List<PhoneResponse> lpr = new ArrayList<PhoneResponse>();
 		for (Phone p : lp) {
 			lpr.add(new PhoneResponse(p));
 		}
+		System.out.println(lpr.toString());
 		return lpr;
 	}
 	
@@ -45,5 +46,9 @@ public class PhoneServices {
 		p = pr.save(p);
 		return new PhoneResponse(p);
 		
+	}
+	
+	public void delete(int id) {
+		pr.deleteById(id);
 	}
 }
