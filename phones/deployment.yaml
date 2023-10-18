@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retail-phone-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: retail-phone-backend
+  template:
+    metadata:
+      labels:
+        app: retail-phone-backend
+    spec:
+      containers:
+      - name: retail-phone-backend
+        image: phones:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
